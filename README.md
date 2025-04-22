@@ -1,1 +1,1 @@
-# inventory-tracker-frontend
+# inventory-management-system-frontend
