@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import '../index.css'; // Corrected path to index.css
+import '../index.css'; // Ensure styles are applied
 
 function ItemList({ items: initialItems }) {
   const [items, setItems] = useState(initialItems || []);
@@ -15,10 +15,12 @@ function ItemList({ items: initialItems }) {
   const deleteItem = async (id) => {
     if (window.confirm('Are you sure you want to delete this item?')) {
       try {
-        await axios.delete(`http://localhost:3001/items/${id}`);
-        setItems((prevItems) => prevItems.filter((item) => item.id !== id));
+        await axios.delete(`http://localhost:3000/items/${id}`); // Ensure backend endpoint is correct
+        setItems((prevItems) => prevItems.filter((item) => item.id !== id)); // Update state after deletion
+        alert('Item deleted successfully!');
       } catch (error) {
         console.error('Error deleting item:', error);
+        alert('Failed to delete the item. Please try again.');
       }
     }
   };
@@ -35,15 +37,17 @@ function ItemList({ items: initialItems }) {
   // Save edited item to database and update state
   const saveEdits = async () => {
     try {
-      const response = await axios.put(`http://localhost:3001/items/${editItem.id}`, editItem);
+      const response = await axios.put(`http://localhost:3000/items/${editItem.id}`, editItem); // Ensure backend endpoint is correct
       setItems((prevItems) =>
         prevItems.map((item) =>
           item.id === editItem.id ? response.data : item
         )
       );
       setEditItem(null); // Close the edit form
+      alert('Item updated successfully!');
     } catch (error) {
       console.error('Error updating item:', error);
+      alert('Failed to update the item. Please try again.');
     }
   };
 
@@ -68,8 +72,8 @@ function ItemList({ items: initialItems }) {
                 <td>{item.category}</td>
                 <td>{item.quantity}</td>
                 <td>
-                  <button onClick={() => setEditItem(item)}>Edit</button>
-                  <button onClick={() => deleteItem(item.id)}>Delete</button>
+                  <button onClick={() => setEditItem(item)}>Edit</button> {/* Edit button */}
+                  <button onClick={() => deleteItem(item.id)}>Delete</button> {/* Delete button */}
                 </td>
               </tr>
             ))}

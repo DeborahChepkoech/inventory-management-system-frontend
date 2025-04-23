@@ -16,7 +16,7 @@ function App() {
   useEffect(() => {
     const fetchItems = async () => {
       try {
-        const response = await axios.get('http://localhost:3001/items');
+        const response = await axios.get('http://localhost:3000/items');
         setItems(response.data);
         setFilteredItems(response.data);
       } catch (error) {
@@ -29,7 +29,7 @@ function App() {
 
   const addItem = async (newItem) => {
     try {
-      const response = await axios.post('http://localhost:3001/items', newItem);
+      const response = await axios.post('http://localhost:3000/items', newItem);
       setItems((prevItems) => [...prevItems, response.data]);
       setFilteredItems((prevItems) => [...prevItems, response.data]);
     } catch (error) {
