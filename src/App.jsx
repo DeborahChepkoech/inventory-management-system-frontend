@@ -1,35 +1,73 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+
+
+import React, { useState, useEffect } from 'react';
+import { Routes, Route } from 'react-router-dom';
+import Navbar from './components/NavBar';
+import Home from './components/Home';
+import ItemList from './components/ItemList';
+import AddItemForm from './components/AddItemForm';
+import About from './components/About';
+import axios from 'axios';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [items, setItems] = useState([]);
+  const [filteredItems, setFilteredItems] = useState([]);
+
+  useEffect(() => {
+    const fetchItems = async () => {
+      try {
+        const response = await axios.get('http://localhost:3001/items');
+        setItems(response.data);
+        setFilteredItems(response.data);
+      } catch (error) {
+        console.error('Error fetching items:', error);
+      }
+    };
+
+    fetchItems();
+  }, []);
+
+  const addItem = async (newItem) => {
+    try {
+      const response = await axios.post('http://localhost:3001/items', newItem);
+      setItems((prevItems) => [...prevItems, response.data]);
+      setFilteredItems((prevItems) => [...prevItems, response.data]);
+    } catch (error) {
+      console.error('Error adding item:', error);
+    }
+  };
+
+  const handleCategorySearch = (selectedCategory) => {
+    if (selectedCategory === '') {
+      setFilteredItems(items);
+    } else {
+      const filtered = items.filter(
+        (item) => item.category.toLowerCase() === selectedCategory.toLowerCase()
+      );
+      setFilteredItems(filtered);
+    }
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="app">
+      <Navbar />
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <Home
+              items={items}
+              filteredItems={filteredItems}
+              handleCategorySearch={handleCategorySearch}
+            />
+          }
+        />
+        <Route path="/inventory" element={<ItemList items={filteredItems} />} />
+        <Route path="/add" element={<AddItemForm addItem={addItem} />} />
+        <Route path="/about" element={<About />} />
+      </Routes>
+    </div>
+  );
 }
 
-export default App
+export default App;
