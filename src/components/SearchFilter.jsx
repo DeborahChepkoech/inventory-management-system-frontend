@@ -9,7 +9,7 @@ function SearchFilter({ handleCategorySearch }) {
   const [selectedCategory, setSelectedCategory] = useState('');
 
   const handleSearchClick = () => {
-    handleCategorySearch(selectedCategory); // Triggers the filtering in parent component
+    handleCategorySearch(selectedCategory); 
   };
 
   return (

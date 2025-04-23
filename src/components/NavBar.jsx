@@ -5,7 +5,7 @@ function NavBar() {
   return (
     <nav className="navbar">
       <div className="navbar-container">
-        <div className="navbar-logo"><h1>Inventory App</h1></div>
+        <div className="navbar-logo"><h1>Inventory management system</h1></div>
         <ul className="navbar-links">
           <li>
             <Link to="/" className="navbar-link">Home</Link>

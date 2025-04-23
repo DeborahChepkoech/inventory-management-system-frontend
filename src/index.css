@@ -1,66 +1,10 @@
-.center {
-  text-align: center;
-  font-size: 30px;
-}
+
+
 h1{
   text-align: center;
   padding-top: 30px;
 }
-/* NavBar.css */
-.navbar {
-  background-color: #4CAF50;
-  color: white;
-  padding: 10px;
-  text-align: center;
-}
 
-.navbar-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.navbar-logo {
-  font-size: 1.8rem;
-  font-weight: bold;
-}
-
-.navbar-links {
-  display: flex;
-  gap: 1.5rem;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.navbar-link {
-  color: white;
-  text-decoration: none;
-  font-size: 1rem;
-  padding: 0.5rem 1rem;
-  border-radius: 6px;
-  transition: all 0.3s ease;
-}
-
-.navbar-link:hover {
-  background-color: rgba(255, 255, 255, 0.2);
-}
-
-/* Optional: Responsive Nav */
-@media (max-width: 768px) {
-  .navbar-container {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .navbar-links {
-    flex-direction: column;
-    gap: 0.5rem;
-    margin-top: 0.5rem;
-  }
-}
 .inventory-list {
   padding: 20px;
   max-width: 90%;
@@ -70,7 +14,6 @@ h1{
 
 h2 {
   text-align: center;
-  color: #333;
   margin-bottom: 20px;
 }
 
@@ -207,10 +150,54 @@ h2 {
   margin: 20px auto;
 }
 
-.about {
-  padding: 20px;
-  font-family: Arial, sans-serif;
+.add-item-container {
+  background-color: rgba(255, 255, 255, 0.95); 
+  padding: 30px;
+  margin: 40px auto;
+  max-width: 500px;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
   text-align: center;
 }
 
+.add-item-container h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
 
+.add-item-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.add-item-form input,
+.add-item-form select {
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  transition: border-color 0.3s ease;
+}
+
+.add-item-form input:focus,
+.add-item-form select:focus {
+  border-color: #4CAF50;
+  outline: none;
+}
+
+.add-item-form button {
+  padding: 12px;
+  background-color: #4CAF50;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add-item-form button:hover {
+  background-color: #45a049;
+}

@@ -1,12 +1,30 @@
-# React + Vite
+# Warehouse Inventory Management System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple and efficient React-based web application for managing warehouse inventory. This system allows users to view, add, edit, filter, and delete inventory items by category or quantity, making inventory control smooth and reliable.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **View Inventory**: Display a list of all items with name, category, and quantity.
+- **Add Items**: Add new stock items with form validation.
+- **Edit Items**: Modify existing items in the inventory.
+- **Delete Items**: Remove obsolete or used-up items.
+- **Filter by Category**: Search items by their assigned category.
+- **Responsive UI**: Clean, readable design with styled components.
+- **Background Image**: A visually appealing layout with a background image that doesn’t hinder readability.
 
-## Expanding the ESLint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **Frontend**: React, CSS
+- **Backend**: `json-server` (for simulating a REST API)
+- **Styling**: CSS Modules / Global Styles
+
+
+## Getting Started
+
+
+```bash
+git clone https://github.com/DeborahChepkoech/inventory-management-system-frontend.git
+cd inventory-management-frontend
+
+
+

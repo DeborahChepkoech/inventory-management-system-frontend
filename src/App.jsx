@@ -8,6 +8,7 @@ import ItemList from './components/ItemList';
 import AddItemForm from './components/AddItemForm';
 import About from './components/About';
 import axios from 'axios';
+import './App.css';
 
 function App() {
   const [items, setItems] = useState([]);

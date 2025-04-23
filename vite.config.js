@@ -6,12 +6,12 @@ export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: {
-      'crypto': 'crypto-browserify', // Ensure the alias for crypto is correct
+      'crypto': 'crypto-browserify', 
     },
   },
   define: {
-    global: {}, // Ensures compatibility for global objects
-    'process.env': {}, // Handles any issues related to process in the dev environment
+    global: {}, 
+    'process.env': {}, 
   },
   
 });

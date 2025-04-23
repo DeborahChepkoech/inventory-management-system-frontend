@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../index.css'; // Corrected path to index.css
+import '../index.css';
 
 function AddItemForm({ addItem }) {
   const [formData, setFormData] = useState({
@@ -8,7 +8,7 @@ function AddItemForm({ addItem }) {
     quantity: ''
   });
 
-  // Expanded category list from 2 to 12 options
+ 
   const categories = [
     'Electronics',
     'Furniture',
